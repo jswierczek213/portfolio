@@ -1,0 +1,130 @@
+@import '../../../assets/styles/variables.scss';
+
+// Desktop navbar styles
+nav.desktop-nav {
+  position: fixed;
+  top: 0px;
+  left: -150px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  width: 150px;
+  height: 100vh;
+  background-color: $black;
+  user-select: none;
+  z-index: 2;
+
+  .item {
+    text-align: center;
+    color: $orange;
+    padding: 1em 0;
+    cursor: pointer;
+    transition: color 0.5s;
+
+    &:hover {
+      color: $purple;
+
+      .link-name-container {
+        .link-name {
+          background-color: $purple;
+        }
+      }
+    }
+
+    .icon-container {
+      .custom {
+        font-size: 80px;
+
+        @media screen and (max-height: 600px) {
+          font-size: 60px;
+        }
+      }
+    }
+
+    .link-name-container {
+      .link-name {
+        display: inline-block;
+        padding: 5px 15px;
+        background-color: $orange;
+        color: $black;
+        border-radius: 5px 15px;
+        transition: background-color 0.5s;
+      }
+    }
+
+  }
+
+  .active {
+    color: $purple;
+
+      .link-name-container {
+        .link-name {
+          background-color: $purple;
+        }
+      }
+  }
+}
+
+.toggle-nav-container {
+  position: fixed;
+  top: 20px;
+  left: 0px;
+  width: fit-content;
+  cursor: pointer;
+  background-color: $black;
+  user-select: none;
+  z-index: 2;
+
+  &:hover {
+    .custom {
+      color: $purple;
+    }
+  }
+
+  .custom {
+    display: block;
+    font-size: 60px;
+    color: $orange;
+    transition: color 0.5s;
+  }
+}
+
+// Mobile navbar styles
+nav.mobile-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+  z-index: 2;
+
+  .item {
+    width: 25%;
+    text-align: center;
+    padding: 0.75em;
+    background-color: $black;
+    border-radius: 50% 50% 0 0;
+    color: $orange;
+    cursor: pointer;
+    transition: color 0.5s;
+    outline: none;
+
+    &:hover {
+      color: $purple;
+    }
+
+    .link-name-container {
+      .link-name {
+        font-size: 0.6em;
+      }
+    }
+  }
+
+  .active {
+    color: $purple;
+  }
+}

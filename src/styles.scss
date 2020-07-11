@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import 'assets/styles/variables.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  background-color: $white;
+
+  @media screen and (max-width: 600px) {
+    padding-bottom: 80px;
+  }
+
+  .material-icons.small {
+    font-size: 18px;
+  }
+
+  .material-icons.medium {
+    font-size: 24px;
+  }
+
+  .material-icons.big {
+    font-size: 36px;
+  }
+
+  .material-icons.large {
+    font-size: 48px;
+  }
+}

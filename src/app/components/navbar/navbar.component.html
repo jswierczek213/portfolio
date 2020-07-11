@@ -1,0 +1,55 @@
+<!-- Desktop navbar -->
+<ng-container *ngIf="innerWidth > 600">
+
+  <!-- Navbar -->
+  <nav class="desktop-nav" [@openCloseNavbar]="displayDesktopNavbar ? 'open' : 'closed'">
+
+    <!-- Link container -->
+    <div
+    class="item"
+    *ngFor="let link of links; let i = index"
+    [class.active]="link.active"
+    (click)="viewSection(i)">
+      <div class="icon-container">
+        <i class="material-icons custom"> {{ link.icon }} </i>
+      </div>
+      <div class="link-name-container">
+        <span class="link-name"> {{ link.name }} </span>
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- Button to toggle navbar -->
+  <div
+  class="toggle-nav-container"
+  [@click]="displayDesktopNavbar ? 'open' : 'closed'"
+  (click)="toggleDesktopNavbar()">
+      <i class="material-icons custom">
+        {{ displayDesktopNavbar ? 'chevron_left' : 'chevron_right' }}
+      </i>
+  </div>
+
+</ng-container>
+
+<!-- Mobile navbar -->
+<ng-container *ngIf="innerWidth <= 600">
+
+  <nav class="mobile-nav">
+
+    <div
+    class="item"
+    [class.active]="link.active"
+    *ngFor="let link of links; let i = index"
+    (click)="viewSection(i)">
+      <div class="icon-container">
+        <i class="material-icons medium"> {{ link.icon }} </i>
+      </div>
+      <div class="link-name-container">
+        <span class="link-name"> {{ link.name }} </span>
+      </div>
+    </div>
+
+  </nav>
+
+</ng-container>
