@@ -1,0 +1,93 @@
+@import '../../../assets/styles/variables.scss';
+
+.container {
+  width: 100%;
+  padding: 1em;
+  background-color: $white;
+
+  .skills-heading {
+    text-align: center;
+    color: $purple;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 2.5em;
+  }
+
+  h3 {
+    margin-top: 0;
+    text-align: center;
+    color: $black;
+  }
+
+  .skills-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-flow: row wrap;
+    justify-items: stretch;
+
+    .skill {
+      background-color: $black;
+      width: 300px;
+      padding: 1em;
+      border-radius: 1em;
+      margin: 1em;
+
+      .image-container {
+        width: 100%;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 150px;
+        }
+      }
+
+      .name-container {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5em;
+        padding: 1em;
+
+        span {
+          font-size: 1.5em;
+          color: $white;
+        }
+      }
+
+      @media screen and (max-width: 720px) {
+        width: 200px;
+
+        .image-container {
+          img {
+            height: 100px;
+          }
+        }
+
+        .name-container {
+          span {
+            font-size: 1.35em;
+          }
+        }
+      }
+
+      @media screen and (max-width: 520px) {
+        width: 140px;
+        margin: 0.5em;
+
+        .image-container {
+          img {
+            height: 100px;
+          }
+        }
+
+        .name-container {
+          span {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+}

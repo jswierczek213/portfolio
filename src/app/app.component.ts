@@ -1,17 +1,27 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor() {}
 
   @ViewChild('aboutMe', { static: true }) aboutMe: ElementRef;
   @ViewChild('skills', { static: true }) skills: ElementRef;
   @ViewChild('projects', { static: true }) projects: ElementRef;
   @ViewChild('contact', { static: true }) contact: ElementRef;
+
+  displaySpacer: boolean;
+
+  ngOnInit() {
+    if (window.innerWidth > 600) {
+      this.displaySpacer = false;
+    } else {
+      this.displaySpacer = true;
+    }
+  }
 
   scrollToSection(sectionNumber: number) {
     if (sectionNumber === 0) {

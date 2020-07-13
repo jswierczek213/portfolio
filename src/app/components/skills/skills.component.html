@@ -1,0 +1,20 @@
+<div class="container">
+  <h2 class="skills-heading">Umiejętności</h2>
+  <h3>Technologie, z których korzystam na co dzień</h3>
+
+  <!-- Container for all skills -->
+  <div class="skills-container">
+
+    <!-- Skill card -->
+    <div class="skill" *ngFor="let skill of skills" >
+      <div class="image-container">
+        <img [src]="skill.image" />
+      </div>
+      <div class="name-container">
+        <span> {{ skill.name }} </span>
+      </div>
+    </div>
+
+  </div>
+
+</div>

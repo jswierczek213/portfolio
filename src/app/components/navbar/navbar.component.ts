@@ -44,10 +44,12 @@ export class NavbarComponent implements OnInit {
   innerWidth: any;
 
   displayDesktopNavbar: boolean;
+  displayMobileNavbar: boolean;
 
   ngOnInit() {
     this.links[0].active = true;
     this.displayDesktopNavbar = false;
+    this.displayMobileNavbar = false;
 
     this.innerWidth = window.innerWidth;
   }
@@ -59,6 +61,10 @@ export class NavbarComponent implements OnInit {
 
   toggleDesktopNavbar() {
     this.displayDesktopNavbar = !this.displayDesktopNavbar;
+  }
+
+  toggleMobileNavbar() {
+    this.displayMobileNavbar = !this.displayMobileNavbar;
   }
 
   viewSection(sectionNumber: number) {

@@ -1,14 +1,15 @@
 <!-- Navbar -->
-<app-navbar (scrolled)="scrollToSection($event)"></app-navbar>
+<app-navbar
+(scrolled)="scrollToSection($event)"></app-navbar>
 
 <!-- About me section -->
 <section #aboutMe class="page-section about-me">
-
+  <app-about-me></app-about-me>
 </section>
 
 <!-- Skills section -->
 <section #skills class="page-section skills">
-
+  <app-skills></app-skills>
 </section>
 
 <!-- Projects section -->

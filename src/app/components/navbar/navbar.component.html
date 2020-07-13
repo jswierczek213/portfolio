@@ -35,18 +35,28 @@
 <!-- Mobile navbar -->
 <ng-container *ngIf="innerWidth <= 600">
 
-  <nav class="mobile-nav">
 
-    <div
-    class="item"
-    [class.active]="link.active"
-    *ngFor="let link of links; let i = index"
-    (click)="viewSection(i)">
-      <div class="icon-container">
-        <i class="material-icons medium"> {{ link.icon }} </i>
+  <nav class="mobile-nav" [class.align-right]="!displayMobileNavbar">
+
+    <div class="links-container" *ngIf="displayMobileNavbar">
+      <div
+      class="link"
+      *ngFor="let link of links; let i = index"
+      [class.active]="link.active"
+      (click)="viewSection(i)">
+
+        <div class="link-icon-container">
+          <i class="material-icons custom"> {{ link.icon }} </i>
+        </div>
+
       </div>
-      <div class="link-name-container">
-        <span class="link-name"> {{ link.name }} </span>
+    </div>
+
+    <div class="btn-container">
+      <div class="nav-toggle-btn" (click)="toggleMobileNavbar()">
+        <i class="material-icons big">
+          {{ displayMobileNavbar ? 'close' : 'menu' }}
+        </i>
       </div>
     </div>
 
