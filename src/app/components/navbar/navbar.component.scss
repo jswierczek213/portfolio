@@ -116,6 +116,28 @@ nav.mobile-nav {
       background-color: $black;
       border-radius: 50%;
       box-shadow: 0 0 5px $black;
+      opacity: 0;
+      animation-name: fadeIn;
+      animation-timing-function: linear;
+      animation-duration: 300ms;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+
+      &:nth-of-type(1) {
+        animation-delay: 0;
+      }
+
+      &:nth-of-type(2) {
+        animation-delay: 100ms;
+      }
+
+      &:nth-of-type(3) {
+        animation-delay: 200ms;
+      }
+
+      &:nth-of-type(4) {
+        animation-delay: 300ms;
+      }
 
       .link-icon-container {
         width: 100%;
@@ -123,6 +145,15 @@ nav.mobile-nav {
 
         .custom {
           font-size: 30px;
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
         }
       }
     }
