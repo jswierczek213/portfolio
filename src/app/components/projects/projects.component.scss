@@ -89,6 +89,10 @@
             font-size: 1em;
           }
 
+          @media screen and (max-width: 450px) {
+            font-size: 0.85em;
+          }
+
           &:hover {
             background-color: $orange;
           }
