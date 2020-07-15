@@ -1,0 +1,77 @@
+<div class="container">
+
+  <div class="projects-heading">
+    <h2>Projekty</h2>
+    <p>Moje poprzednio wykonane prace</p>
+  </div>
+
+  <div class="projects-container">
+
+    <div class="project">
+      <div class="project-name-container">
+        <h3>Movie-lib</h3>
+        <p>
+          Witryna internetowa, na której można wyświetlić szczegóły filmów, seriali lub aktorów. Poza wyświetlanymi domyślnie materiałami istnieje możliwość skorzystania z wyszukiwarki. Całość korzysta z zewnętrznego API, tj. TMDB.
+        </p>
+      </div>
+      <div class="image-container">
+
+        <img #movieLib
+        src="assets/images/movie-lib.png"
+        alt="Movie-lib project image"
+        (click)="openImageInNewTab(movieLib)" />
+
+        <a href="https://github.com/jswierczek213/movie-lib" class="github">
+          Kod źródłowy
+        </a>
+
+        <a href="https://jswierczek213.github.io/movie-lib/" class="live">Podgląd</a>
+
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-name-container">
+        <h3>Users community</h3>
+        <p>Witryna, na której istnieje możliwość utworzenia konta, które następnie można modyfikować. Po rejestracji możemy dodawać posty, komentarze lub przeglądać profile pozostałych użytkowników.</p>
+      </div>
+      <div class="image-container">
+
+        <img #usersCommunity
+        src="assets/images/users-community.png"
+        alt="Users community project image"
+        (click)="openImageInNewTab(usersCommunity)" />
+
+        <a href="https://github.com/jswierczek213/users-community" class="github">
+          Kod źródłowy
+        </a>
+
+        <a href="https://jswierczek213.github.io/users-community/" class="live">Podgląd</a>
+
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-name-container">
+        <h3>Sport shop</h3>
+        <p>
+          Witryna sklepu internetowego o tematyce sportowej. Istnieje możliwość dodawania produktów do koszyka, gdzie są one widoczne w postali listy wraz z ich kategoriami oraz podsumowaniem ceny.
+        </p>
+      </div>
+      <div class="image-container">
+
+        <img #shop
+        src="assets/images/shop.png"
+        alt="Sport shop project image"
+        (click)="openImageInNewTab(shop)" />
+
+        <a href="https://github.com/jswierczek213/shop" class="github">Kod źródłowy</a>
+
+        <a href="https://jswierczek213.github.io/shop/" class="live">Podgląd</a>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

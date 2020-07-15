@@ -13,10 +13,11 @@
     font-size: 2.5em;
   }
 
-  h3 {
+  p {
     margin-top: 0;
     text-align: center;
     color: $black;
+    font-size: 1.15em;
 
     @media screen and (max-width: 450px) {
       font-size: 1em;
@@ -37,6 +38,7 @@
       padding: 1em;
       border-radius: 1em;
       margin: 1em;
+      box-shadow: 0 5px 10px #333;
 
       .image-container {
         width: 100%;
