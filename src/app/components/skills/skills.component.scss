@@ -2,14 +2,14 @@
 
 .container {
   width: 100%;
-  padding: 1em;
+  padding: 3em 1em;
   background-color: $white;
 
   .skills-heading {
     text-align: center;
     color: $purple;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin: 0 0 8px 0;
     font-size: 2.5em;
   }
 

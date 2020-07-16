@@ -1,0 +1,44 @@
+<div class="container" #container>
+  <div class="form-container">
+
+    <h2>Kontakt</h2>
+    <p>
+      Skontaktuj się ze mną wysyłając mail na <span class="mail">jswierczek213@gmail.com</span> lub poprzez poniższy formularz
+    </p>
+
+    <div class="error-container" *ngIf="displayInfo">
+      <ng-container *ngIf="success">
+        <h3>Wysyłanie powiodło się</h3>
+      </ng-container>
+      <ng-container *ngIf="displayServerErrors">
+        <h3>Błąd</h3>
+        <p>Wystąpił błąd, spróbuj ponownie</p>
+      </ng-container>
+      <ng-container *ngIf="displayLocalErrors">
+        <h3>Błąd</h3>
+        <p>Podaj prawidłowy e-mail</p>
+        <p>Temat musi posiadać minimum 3 znaki</p>
+        <p>Treść wiadomości musi posiadać minimum 10 znaków</p>
+      </ng-container>
+    </div>
+
+    <form [formGroup]="contact" (ngSubmit)="submit()" autocomplete="off" novalidate>
+      <div class="form-field">
+        <h3>E-mail</h3>
+        <input formControlName="email" type="email" placeholder="Twój e-mail..." />
+      </div>
+      <div class="form-field">
+        <h3>Temat</h3>
+        <input formControlName="subject" type="text" placeholder="Temat e-mail'a..." />
+      </div>
+      <div class="form-field">
+        <h3>Wiadomość</h3>
+        <textarea formControlName="text" placeholder="Treść wiadomości..."></textarea>
+      </div>
+      <div class="submit-btn-container">
+        <button type="submit" class="submit">Wyślij</button>
+      </div>
+    </form>
+
+  </div>
+</div>

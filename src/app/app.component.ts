@@ -26,22 +26,22 @@ export class AppComponent implements OnInit {
   scrollToSection(sectionNumber: number) {
     if (sectionNumber === 0) {
       const el = this.aboutMe.nativeElement;
-      el.scrollIntoView({ behavior: 'smooth'});
+      el.scrollIntoView({ behavior: 'smooth' });
     }
 
     if (sectionNumber === 1) {
       const el = this.skills.nativeElement;
-      el.scrollIntoView({ behavior: 'smooth'});
+      el.scrollIntoView({ behavior: 'smooth' });
     }
 
     if (sectionNumber === 2) {
       const el = this.projects.nativeElement;
-      el.scrollIntoView({ behavior: 'smooth'});
+      el.scrollIntoView({ behavior: 'smooth' });
     }
 
     if (sectionNumber === 3) {
       const el = this.contact.nativeElement;
-      el.scrollIntoView({ behavior: 'smooth'});
+      el.scrollIntoView({ behavior: 'smooth' });
     }
   }
 }
