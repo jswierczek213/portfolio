@@ -1,9 +1,9 @@
 <!-- Navbar -->
-<app-navbar (scrolled)="scrollToSection($event)"></app-navbar>
+<app-navbar (scrolled)="scrollToSection($event)" [currentSection]="sectionNumber"></app-navbar>
 
 <!-- About me section -->
 <section #aboutMe class="page-section about-me">
-  <app-about-me></app-about-me>
+  <app-about-me (clicked)="scrollToSection($event)"></app-about-me>
 </section>
 
 <!-- Skills section -->
@@ -20,3 +20,6 @@
 <section #contact class="page-section contact">
   <app-contact></app-contact>
 </section>
+
+<!-- Footer of the website -->
+<app-footer></app-footer>

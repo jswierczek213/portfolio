@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-about-me',
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.scss']
 })
-export class AboutMeComponent implements OnInit {
+export class AboutMeComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
+  @Output() clicked = new EventEmitter();
+
+  viewNextSection() {
+    this.clicked.emit(1);
   }
 
 }

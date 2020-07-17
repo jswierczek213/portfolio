@@ -16,6 +16,8 @@ export class ContactComponent implements OnInit {
 
   contact: FormGroup;
 
+  displayLoader = false;
+
   displayInfo: boolean;
   displayLocalErrors: boolean;
   displayServerErrors: boolean;
@@ -30,9 +32,12 @@ export class ContactComponent implements OnInit {
   }
 
   submit() {
+    const el = this.container.nativeElement;
+
     if (this.contact.invalid) {
       this.displayInfo = true;
       this.displayLocalErrors = true;
+      el.scrollIntoView({ behaviour: 'smooth' });
       return;
     }
 
@@ -45,10 +50,14 @@ export class ContactComponent implements OnInit {
     const subject = this.contact.value.subject;
     const text = this.contact.value.text;
 
+    this.displayLoader = true;
+
     this.mailService.sendMail(email, subject, text)
     .pipe(
       finalize(() => {
+        this.displayLoader = false;
         this.displayInfo = true;
+        el.scrollIntoView({ behaviour: 'smooth' });
       })
     )
     .subscribe(
@@ -60,9 +69,6 @@ export class ContactComponent implements OnInit {
       () => {
         this.success = true;
         this.contact.reset();
-
-        const el = this.container.nativeElement;
-        el.scrollIntoView({ behaviour: 'smooth' });
       }
     );
   }

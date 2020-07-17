@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, HostListener, Output, EventEmitter, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -33,6 +33,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class NavbarComponent implements OnInit {
 
   constructor() { }
+
+  @Input() currentSection: number;
   @Output() scrolled = new EventEmitter();
 
   links = [
@@ -59,6 +61,14 @@ export class NavbarComponent implements OnInit {
     this.innerWidth = window.innerWidth;
   }
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    // Set active link
+    this.links.forEach((link, index) => {
+      link.active = (index === this.currentSection) ? true : false;
+    });
+  }
+
   toggleDesktopNavbar() {
     this.displayDesktopNavbar = !this.displayDesktopNavbar;
   }
@@ -68,11 +78,6 @@ export class NavbarComponent implements OnInit {
   }
 
   viewSection(sectionNumber: number) {
-    // Set active link
-    this.links.forEach((link, index) => {
-      link.active = (index === sectionNumber) ? true : false;
-    });
-
     // Scroll to section
     this.scrolled.emit(sectionNumber);
   }
