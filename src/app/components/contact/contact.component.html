@@ -36,7 +36,7 @@
         <textarea formControlName="text" placeholder="Treść wiadomości..."></textarea>
       </div>
       <div class="submit-btn-container">
-        <button type="submit" class="submit">Wyślij</button>
+        <button type="submit" class="submit" [disabled]="disabled">Wyślij</button>
         <p class="loader" *ngIf="displayLoader">Wysyłanie...</p>
       </div>
     </form>
