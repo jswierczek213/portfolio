@@ -109,6 +109,10 @@
           transform: translate(50%, -50%);
           background-color: $purple;
         }
+
+        .center {
+          left: 50%;
+        }
       }
     }
   }
