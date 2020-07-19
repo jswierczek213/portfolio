@@ -2,7 +2,7 @@
 
 .container {
   width: 100%;
-  background-color: $black;
+  background-color: $deepPurple;
   padding: 3em 1em;
 
   .projects-heading {
@@ -11,7 +11,7 @@
     margin: 0 0 20px 0;
 
     h2 {
-      color: $orange;
+      color: $white;
       margin: 0 0 10px 0;
     }
 
@@ -53,6 +53,7 @@
         h3 {
           margin: 0;
           color: $black;
+          font-size: 1.3em;
         }
       }
 
@@ -105,6 +106,7 @@
         img {
           display: block;
           width: 80%;
+          max-height: 100%;
           filter: brightness(90%);
           cursor: pointer;
           border-radius: 1em;

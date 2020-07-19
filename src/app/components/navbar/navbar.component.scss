@@ -10,24 +10,24 @@ nav.desktop-nav {
   justify-content: space-around;
   width: 150px;
   height: 100vh;
-  background-color: $black;
+  background-color: $deepPurple;
   user-select: none;
-  border-left: 2px solid $orange;
+  border-left: 2px solid $white;
   z-index: 2;
 
   .item {
     text-align: center;
-    color: $orange;
+    color: $white;
     padding: 1em 0;
     cursor: pointer;
     transition: color 1s;
 
     &:hover {
-      color: $purple;
+      color: $orange;
 
       .link-name-container {
         .link-name {
-          background-color: $purple;
+          background-color: $orange;
         }
       }
     }
@@ -46,9 +46,10 @@ nav.desktop-nav {
       .link-name {
         display: inline-block;
         padding: 5px 15px;
-        background-color: $orange;
+        background-color: $white;
         color: $black;
         border-radius: 5px 15px;
+        font-weight: 500;
         transition: background-color 1s;
       }
     }
@@ -56,11 +57,11 @@ nav.desktop-nav {
   }
 
   .active {
-    color: $purple;
+    color: $orange;
 
       .link-name-container {
         .link-name {
-          background-color: $purple;
+          background-color: $orange;
         }
       }
   }
@@ -72,12 +73,12 @@ nav.desktop-nav {
   right: 0px;
   width: fit-content;
   cursor: pointer;
-  background-color: $black;
+  background-color: $deepPurple;
   user-select: none;
   z-index: 2;
-  border-top: 2px solid $orange;
-  border-left: 2px solid $orange;
-  border-bottom: 2px solid $orange;
+  border-top: 2px solid $white;
+  border-left: 2px solid $white;
+  border-bottom: 2px solid $white;
   border-radius: 1em 0 0 1em;
   transition: background-color 0.5s;
 
@@ -88,7 +89,7 @@ nav.desktop-nav {
   .custom {
     display: block;
     font-size: 80px;
-    color: $orange;
+    color: $white;
   }
 }
 
@@ -102,8 +103,8 @@ nav.mobile-nav {
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
-  z-index: 2;
   pointer-events: none;
+  z-index: 2;
 
   .links-container {
     width: 80%;
@@ -115,8 +116,8 @@ nav.mobile-nav {
 
     .link {
       padding: 0.5em;
-      color: $orange;
-      background-color: $black;
+      color: $white;
+      background-color: $deepPurple;
       border-radius: 50%;
       box-shadow: 0 0 5px $black;
       opacity: 0;
@@ -125,7 +126,7 @@ nav.mobile-nav {
       animation-duration: 300ms;
       animation-iteration-count: 1;
       animation-fill-mode: forwards;
-      border: 2px solid $orange;
+      border: 2px solid $white;
       transition: color 1s;
       pointer-events: auto;
 
@@ -166,7 +167,7 @@ nav.mobile-nav {
     }
 
     .active {
-      color: $purple;
+      color: $orange;
     }
   }
 
@@ -177,7 +178,7 @@ nav.mobile-nav {
       width: fit-content;
       height: fit-content;
       margin: 0 auto;
-      background-color: $black;
+      background-color: $deepPurple;
       color: $white;
       z-index: 2;
       display: flex;
@@ -190,6 +191,7 @@ nav.mobile-nav {
       box-shadow: 0 0 5px $black;
       opacity: 0.9;
       pointer-events: auto;
+      user-select: none;
     }
   }
 }
