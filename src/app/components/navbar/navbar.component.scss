@@ -4,7 +4,7 @@
 nav.desktop-nav {
   position: fixed;
   top: 0px;
-  left: -150px;
+  right: -150px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
@@ -12,7 +12,7 @@ nav.desktop-nav {
   height: 100vh;
   background-color: $black;
   user-select: none;
-  border-right: 2px solid $orange;
+  border-left: 2px solid $orange;
   z-index: 2;
 
   .item {
@@ -68,28 +68,27 @@ nav.desktop-nav {
 
 .toggle-nav-container {
   position: fixed;
-  top: 20px;
-  left: 0px;
+  top: 60px;
+  right: 0px;
   width: fit-content;
   cursor: pointer;
   background-color: $black;
   user-select: none;
   z-index: 2;
   border-top: 2px solid $orange;
-  border-right: 2px solid $orange;
+  border-left: 2px solid $orange;
   border-bottom: 2px solid $orange;
+  border-radius: 1em 0 0 1em;
+  transition: background-color 0.5s;
 
   &:hover {
-    .custom {
-      color: $purple;
-    }
+    background-color: $purple;
   }
 
   .custom {
     display: block;
-    font-size: 60px;
+    font-size: 80px;
     color: $orange;
-    transition: color 0.5s;
   }
 }
 
@@ -152,6 +151,7 @@ nav.mobile-nav {
 
         .custom {
           font-size: 28px;
+          display: block;
         }
       }
 

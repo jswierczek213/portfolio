@@ -3,37 +3,57 @@
 
     <h2>Kontakt</h2>
     <p>
-      Skontaktuj się ze mną wysyłając mail na <span class="mail">jswierczek213@gmail.com</span> lub poprzez poniższy formularz
+      Skontaktuj się ze mną wysyłając e-mail na <span class="mail">jswierczek213@gmail.com</span> lub poprzez poniższy formularz
     </p>
 
-    <div class="error-container" *ngIf="displayInfo">
+    <div class="error-container"
+    *ngIf="(displayInfo && success) || (displayInfo && displayServerErrors) || (displayInfo && displayLocalErrors && contact.invalid)">
       <ng-container *ngIf="success">
         <h3>Wysyłanie powiodło się</h3>
       </ng-container>
       <ng-container *ngIf="displayServerErrors">
-        <h3>Błąd</h3>
+        <h3 style="color: red;">Błąd</h3>
         <p>Wystąpił błąd, spróbuj ponownie</p>
       </ng-container>
-      <ng-container *ngIf="displayLocalErrors">
-        <h3>Błąd</h3>
-        <p>Podaj prawidłowy e-mail</p>
-        <p>Temat musi posiadać minimum 3 znaki</p>
-        <p>Treść wiadomości musi posiadać minimum 10 znaków</p>
+      <ng-container *ngIf="displayLocalErrors && contact.invalid">
+        <h3 style="color: red;">Błąd</h3>
+        <p *ngIf="contact.controls.email.invalid">Podaj prawidłowy e-mail</p>
+        <p *ngIf="contact.controls.subject.invalid">
+          Temat musi posiadać minimum 3 znaki
+          <span class="characters-count">{{ subject.value.length }} / 3</span>
+        </p>
+        <p *ngIf="contact.controls.text.invalid">
+          Treść wiadomości musi posiadać minimum 10 znaków
+          <span class="characters-count">{{ text.value.length }} / 10</span>
+        </p>
       </ng-container>
     </div>
 
     <form [formGroup]="contact" (ngSubmit)="submit()" autocomplete="off" novalidate>
       <div class="form-field">
-        <h3>E-mail</h3>
-        <input formControlName="email" type="email" placeholder="Twój e-mail..." />
+        <label for="email">E-mail</label>
+        <input
+        id="email"
+        formControlName="email"
+        type="email"
+        placeholder="Twój e-mail..." />
       </div>
       <div class="form-field">
-        <h3>Temat</h3>
-        <input formControlName="subject" type="text" placeholder="Temat e-mail'a..." />
+        <label for="subject">Temat</label>
+        <input
+        #subject
+        id="subject"
+        formControlName="subject"
+        type="text"
+        placeholder="Temat e-maila..." />
       </div>
       <div class="form-field">
-        <h3>Wiadomość</h3>
-        <textarea formControlName="text" placeholder="Treść wiadomości..."></textarea>
+        <label for="message">Wiadomość</label>
+        <textarea
+        #text
+        id="message"
+        formControlName="text"
+        placeholder="Treść wiadomości..."></textarea>
       </div>
       <div class="submit-btn-container">
         <button type="submit" class="submit" [disabled]="disabled">Wyślij</button>

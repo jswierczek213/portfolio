@@ -8,10 +8,10 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   animations: [
     trigger('openCloseNavbar', [
       state('open', style({
-        left: '0px'
+        right: '0px'
       })),
       state('closed', style({
-        left: '-150px'
+        right: '-150px'
       })),
       transition('open <=> closed', [
         animate('400ms linear')
@@ -19,10 +19,10 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ]),
     trigger('click', [
       state('open', style({
-        left: '150px'
+        right: '150px'
       })),
       state('closed', style({
-        left: '0px'
+        right: '0px'
       })),
       transition('open <=> closed', [
         animate('400ms linear')
@@ -80,6 +80,8 @@ export class NavbarComponent implements OnInit {
   viewSection(sectionNumber: number) {
     // Scroll to section
     this.scrolled.emit(sectionNumber);
+    this.displayDesktopNavbar = false;
+    this.displayMobileNavbar = false;
   }
 
 }

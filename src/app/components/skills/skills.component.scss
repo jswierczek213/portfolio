@@ -3,20 +3,18 @@
 .container {
   width: 100%;
   padding: 3em 1em;
-  background-color: $white;
+  background-color: $purple;
 
   .skills-heading {
     text-align: center;
-    color: $purple;
-    font-weight: 700;
+    color: $white;
     margin: 0 0 8px 0;
-    font-size: 2.5em;
   }
 
   p {
     margin-top: 0;
     text-align: center;
-    color: $black;
+    color: $white;
     font-size: 1.15em;
 
     @media screen and (max-width: 450px) {
@@ -33,8 +31,8 @@
     justify-items: stretch;
 
     .skill {
-      background-color: $black;
-      width: 300px;
+      background-color: $white;
+      width: 200px;
       padding: 1em;
       border-radius: 1em;
       margin: 1em;
@@ -46,34 +44,33 @@
         img {
           display: block;
           width: 100%;
-          height: 150px;
+          height: 100px;
         }
       }
 
       .name-container {
         width: 100%;
         text-align: center;
-        margin-top: 0.5em;
         padding: 1em;
 
         span {
-          font-size: 1.5em;
-          color: $white;
+          font-size: 1.1em;
+          color: $black;
         }
       }
 
       @media screen and (max-width: 720px) {
-        width: 200px;
+        width: 100px;
 
         .image-container {
           img {
-            height: 100px;
+            height: 75px;
           }
         }
 
         .name-container {
           span {
-            font-size: 1.35em;
+            font-size: 1.1em;
           }
         }
       }
@@ -81,12 +78,6 @@
       @media screen and (max-width: 520px) {
         width: 140px;
         margin: 0.5em;
-
-        .image-container {
-          img {
-            height: 100px;
-          }
-        }
 
         .name-container {
           span {

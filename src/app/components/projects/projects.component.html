@@ -7,87 +7,46 @@
 
   <div class="projects-container">
 
-    <div class="project">
+    <div class="project" *ngFor="let project of projects; let i = index" >
       <div class="project-name-container">
-        <h3>Movie-lib</h3>
+        <h3> {{ project.name }} </h3>
         <p>
-          Witryna internetowa, na której można wyświetlić szczegóły filmów, seriali lub aktorów. Poza wyświetlanymi domyślnie materiałami istnieje możliwość skorzystania z wyszukiwarki. Całość korzysta z zewnętrznego API, tj. TMDB.
+          {{ project.description }}
         </p>
       </div>
       <div class="image-container">
 
-        <img #movieLib
-        src="assets/images/movie-lib.png"
-        alt="Movie-lib project image"
-        (click)="openImageInNewTab(movieLib)" />
+        <div class="btn-container">
+          <button (click)="prev(project.currentImage, i)">
+            <i class="material-icons medium">navigate_before</i>
+          </button>
+        </div>
 
-        <a href="https://github.com/jswierczek213/movie-lib" class="github">
+
+        <img
+        [src]="project.images[project.currentImage]"
+        alt="Project image"
+        (click)="openImageInNewTab(project.images[project.currentImage])" />
+
+        <div class="btn-container">
+          <button (click)="next(project.currentImage, i)">
+            <i class="material-icons medium">navigate_next</i>
+          </button>
+        </div>
+
+      </div>
+      <div class="links-container">
+        <a
+        [href]="project.githubLink"
+        target="_blank"
+        class="github">
           Kod
         </a>
 
-        <a href="https://jswierczek213.github.io/movie-lib/" class="live">Podgląd</a>
-
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-name-container">
-        <h3>Users community</h3>
-        <p>Witryna, na której istnieje możliwość utworzenia konta, które następnie można modyfikować. Po rejestracji możemy dodawać posty, komentarze lub przeglądać profile pozostałych użytkowników.</p>
-      </div>
-      <div class="image-container">
-
-        <img #usersCommunity
-        src="assets/images/users-community.png"
-        alt="Users community project image"
-        (click)="openImageInNewTab(usersCommunity)" />
-
-        <a href="https://github.com/jswierczek213/users-community" class="github">
-          Kod
-        </a>
-
-        <a href="https://jswierczek213.github.io/users-community/" class="live">Podgląd</a>
-
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-name-container">
-        <h3>Sport shop</h3>
-        <p>
-          Witryna sklepu internetowego o tematyce sportowej. Istnieje możliwość dodawania produktów do koszyka, gdzie są one widoczne w postali listy wraz z ich kategoriami oraz podsumowaniem ceny.
-        </p>
-      </div>
-      <div class="image-container">
-
-        <img #shop
-        src="assets/images/shop.png"
-        alt="Sport shop project image"
-        (click)="openImageInNewTab(shop)" />
-
-        <a href="https://github.com/jswierczek213/shop" class="github">Kod</a>
-
-        <a href="https://jswierczek213.github.io/shop/" class="live">Podgląd</a>
-
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-name-container">
-        <h3>Portfolio</h3>
-        <p>
-          Witryna, na której jesteś w tej chwili.
-        </p>
-      </div>
-      <div class="image-container">
-
-        <img #portfolio
-        src="assets/images/portfolio.png"
-        alt="Portfolio project image"
-        (click)="openImageInNewTab(portfolio)" />
-
-        <a href="https://github.com/jswierczek213/portfolio" class="github center">Kod</a>
-
+        <a
+        [href]="project.previewLink"
+        target="_blank"
+        class="live">Podgląd</a>
       </div>
     </div>
 
