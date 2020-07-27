@@ -1,11 +1,11 @@
-import { Component, ViewChild, ElementRef, OnInit, HostListener, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, HostListener, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements AfterViewInit {
   constructor() {}
 
   @ViewChild('aboutMe', { static: true }) aboutMe: ElementRef;
@@ -20,16 +20,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   sectionNumber: number;
 
-  displaySpacer: boolean;
-
-  ngOnInit() {
-    if (window.innerWidth > 600) {
-      this.displaySpacer = false;
-    } else {
-      this.displaySpacer = true;
-    }
-  }
-
   ngAfterViewInit(): void {
     this.setYPositions();
   }
@@ -41,27 +31,28 @@ export class AppComponent implements OnInit, AfterViewInit {
     const halfDeviceHeight = Math.floor(window.innerHeight / 2);
     const screenMiddlePosition = (window.pageYOffset + halfDeviceHeight) || (document.documentElement.scrollTop + halfDeviceHeight);
 
-    // If user is on aboutMe section
+    // If user reads about me section
     if ((screenMiddlePosition >= this.aboutY) && (screenMiddlePosition < this.skillsY)) {
       this.sectionNumber = 0;
     }
 
-    // If user is on skills section
+    // If user reads skills section
     if ((screenMiddlePosition >= this.skillsY) && (screenMiddlePosition < this.projectsY)) {
       this.sectionNumber = 1;
     }
 
-    // If user is on projects section
+    // If user reads projects section
     if ((screenMiddlePosition >= this.projectsY) && (screenMiddlePosition < this.contactY)) {
       this.sectionNumber = 2;
     }
 
-    // If user is on contact section
+    // If user reads contact section
     if ((screenMiddlePosition >= this.contactY)) {
       this.sectionNumber = 3;
     }
   }
 
+  // Set top offset for every section
   setYPositions() {
     this.aboutY = this.aboutMe.nativeElement.offsetTop;
     this.skillsY = this.skills.nativeElement.offsetTop;
@@ -70,21 +61,25 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   scrollToSection(sectionNumber: number) {
+    // About me section
     if (sectionNumber === 0) {
       const el = this.aboutMe.nativeElement;
       el.scrollIntoView({ behavior: 'smooth' });
     }
 
+    // Skills section
     if (sectionNumber === 1) {
       const el = this.skills.nativeElement;
       el.scrollIntoView({ behavior: 'smooth' });
     }
 
+    // Projects section
     if (sectionNumber === 2) {
       const el = this.projects.nativeElement;
       el.scrollIntoView({ behavior: 'smooth' });
     }
 
+    // Contact section
     if (sectionNumber === 3) {
       const el = this.contact.nativeElement;
       el.scrollIntoView({ behavior: 'smooth' });

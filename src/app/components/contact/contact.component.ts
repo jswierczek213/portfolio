@@ -25,6 +25,7 @@ export class ContactComponent implements OnInit {
   displayServerErrors: boolean;
   success: boolean;
 
+  // Build contact form
   ngOnInit(): void {
     this.contact = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -36,11 +37,13 @@ export class ContactComponent implements OnInit {
   submit() {
     const el = this.container.nativeElement;
 
+    // Remove errors
     this.displayInfo = false;
     this.displayLocalErrors = false;
     this.displayServerErrors = false;
     this.success = false;
 
+    // Display error container if there is an error
     if (this.contact.invalid) {
       this.displayInfo = true;
       this.displayLocalErrors = true;
@@ -53,9 +56,9 @@ export class ContactComponent implements OnInit {
     const text = this.contact.value.text;
 
     this.displayLoader = true;
-
     this.disabled = true;
 
+    // Send mail
     this.mailService.sendMail(email, subject, text)
     .pipe(
       finalize(() => {

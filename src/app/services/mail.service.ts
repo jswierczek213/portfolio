@@ -9,9 +9,11 @@ export class MailService {
 
   constructor(private http: HttpClient) { }
 
+  // REST API server
   basicUrl = 'https://portfolio-email-service.herokuapp.com';
 
   sendMail(from: string, subject: string, text: string) {
+    // If data is empty return an error
     if (!from || !subject || !text) {
       const error = new Error('Bad request data');
       return throwError(error);

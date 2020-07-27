@@ -78,7 +78,7 @@ export class NavbarComponent implements OnInit {
   }
 
   viewSection(sectionNumber: number) {
-    // Scroll to section
+    // Scroll to section with the given number
     this.scrolled.emit(sectionNumber);
     this.displayDesktopNavbar = false;
     this.displayMobileNavbar = false;

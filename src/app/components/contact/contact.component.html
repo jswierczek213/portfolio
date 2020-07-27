@@ -1,4 +1,6 @@
 <div class="container" #container>
+
+  <!-- Contact form container -->
   <div class="form-container">
 
     <h2>Kontakt</h2>
@@ -6,6 +8,7 @@
       Skontaktuj się ze mną wysyłając e-mail na <span class="mail">jswierczek213@gmail.com</span> lub poprzez poniższy formularz
     </p>
 
+    <!-- Error container -->
     <div class="error-container"
     *ngIf="(displayInfo && success) || (displayInfo && displayServerErrors) || (displayInfo && displayLocalErrors && contact.invalid)">
       <ng-container *ngIf="success">
@@ -29,7 +32,10 @@
       </ng-container>
     </div>
 
+    <!-- Contact form -->
     <form [formGroup]="contact" (ngSubmit)="submit()" autocomplete="off" novalidate>
+
+      <!-- E-mail -->
       <div class="form-field">
         <label for="email">E-mail</label>
         <input
@@ -38,6 +44,8 @@
         type="email"
         placeholder="Twój e-mail..." />
       </div>
+
+      <!-- Subject -->
       <div class="form-field">
         <label for="subject">Temat</label>
         <input
@@ -47,6 +55,8 @@
         type="text"
         placeholder="Temat e-maila..." />
       </div>
+
+      <!-- Message -->
       <div class="form-field">
         <label for="message">Wiadomość</label>
         <textarea
@@ -55,11 +65,15 @@
         formControlName="text"
         placeholder="Treść wiadomości..."></textarea>
       </div>
+
+      <!-- Submit button & loading information -->
       <div class="submit-btn-container">
         <button type="submit" class="submit" [disabled]="disabled">Wyślij</button>
         <p class="loader" *ngIf="displayLoader">Wysyłanie...</p>
       </div>
+
     </form>
 
   </div>
+  
 </div>

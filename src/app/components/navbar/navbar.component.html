@@ -38,6 +38,7 @@
 
   <nav class="mobile-nav" [class.align-right]="!displayMobileNavbar">
 
+    <!-- Section icons container -->
     <div class="links-container" *ngIf="displayMobileNavbar">
       <div
       class="link"
@@ -52,6 +53,7 @@
       </div>
     </div>
 
+    <!-- Button to toggle mobile navbar -->
     <div class="btn-container">
       <div class="nav-toggle-btn" (click)="toggleMobileNavbar()">
         <i class="material-icons big">
